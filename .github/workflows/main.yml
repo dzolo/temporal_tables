@@ -39,7 +39,6 @@ jobs:
       - run: >-
           sudo sed -i '1i local all all trust'
           /etc/postgresql/${{ matrix.PG }}/test/pg_hba.conf
-      - run: 'setfacl -Rm u:postgres:rwx,d:u:travis:rwx $HOME'
       - run: sudo /etc/init.d/postgresql start ${{ matrix.PG }}
       - run: psql -p $PGPORT -U postgres postgres -xA -c 'select version()'
       - run: make
