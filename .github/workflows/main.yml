@@ -23,6 +23,7 @@ jobs:
     env:
       PG_CPPFLAGS: -fprofile-arcs -ftest-coverage -O0
       SHLIB_LINK: -lgcov
+      PGPORT: 5440
     steps:
       - uses: actions/checkout@v2
       - run: >-
@@ -31,7 +32,6 @@ jobs:
       - run: >-
           wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc |
           sudo apt-key add -
-      - run: PGPORT=5440
       - run: sudo /etc/init.d/postgresql stop
       - run: sudo apt-get remove -y postgresql-9.2
       - run: >-
