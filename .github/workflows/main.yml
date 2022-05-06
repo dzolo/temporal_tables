@@ -1,11 +1,7 @@
 name: installcheck
 on:
   push:
-    branches:
-      - master
   pull_request:
-    branches:
-      - master
 jobs:
   Build:
     runs-on: '${{ matrix.os }}'
