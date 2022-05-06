@@ -6,6 +6,7 @@ env:
     - PG_CPPFLAGS="-fprofile-arcs -ftest-coverage -O0"
     - SHLIB_LINK=-lgcov
   matrix:
+    - PG=15
     - PG=14
     - PG=13
     - PG=12
